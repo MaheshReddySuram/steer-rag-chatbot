@@ -22,7 +22,11 @@ def load_policy_chunks(policy_dir: str | Path, max_words: int = 110) -> list[Doc
             continue
 
         title = _extract_title(raw_text, path.stem.replace("_", " ").title())
-        paragraphs = [part.strip() for part in raw_text.split("\n\n") if part.strip()]
+        paragraphs = [
+            part.strip()
+            for part in raw_text.split("\n\n")
+            if part.strip() and not _is_heading(part)
+        ]
 
         for index, paragraph in enumerate(paragraphs, start=1):
             for split_index, split_text in enumerate(_split_words(paragraph, max_words), start=1):
@@ -45,6 +49,10 @@ def _extract_title(text: str, fallback: str) -> str:
     if first_line.startswith("#"):
         return first_line.lstrip("#").strip()
     return fallback
+
+
+def _is_heading(text: str) -> bool:
+    return text.strip().startswith("#")
 
 
 def _split_words(text: str, max_words: int) -> list[str]:

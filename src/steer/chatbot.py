@@ -44,11 +44,9 @@ class SteerChatbot:
 
     def _compose_answer(self, question: str, results: list[RetrievalResult]) -> str:
         strongest = results[0].chunk.text
-        supporting_titles = sorted({result.chunk.title for result in results})
-        source_line = ", ".join(supporting_titles)
+        source_title = results[0].chunk.title
 
         return (
-            f"Based on the available policy documents, the most relevant guidance is: "
-            f"{strongest} "
-            f"This answer is grounded in: {source_line}."
+            f"Here is the most relevant guidance I found: {strongest} "
+            f"Source: {source_title}."
         )
