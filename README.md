@@ -10,6 +10,7 @@ The project is intentionally generic: it uses synthetic sample policy documents 
 - Retrieves the most relevant document chunks before generating a response
 - Shows source references so users can verify the answer
 - Provides a Streamlit chatbot UI for demos
+- Provides a static GitHub Pages chat demo at `/chat/`
 - Exposes a FastAPI endpoint for backend integration
 - Runs without an external LLM API key by using a local retrieval-first response engine
 
@@ -61,6 +62,14 @@ steer-rag-chatbot/
 ```
 
 ## Quick Start
+
+Static GitHub Pages version:
+
+```text
+https://maheshreddysuram.github.io/steer-rag-chatbot/chat/
+```
+
+Python Streamlit version:
 
 ```bash
 python -m venv .venv

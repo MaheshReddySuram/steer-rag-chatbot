@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Steer RAG Chatbot</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">GitHub Pages demo</p>
+          <h1>Steer</h1>
+          <p class="subtitle">
+            A RAG-style chatbot for policies, FAQs, and support documents.
+          </p>
+        </div>
+        <a class="repo-link" href="https://github.com/MaheshReddySuram/steer-rag-chatbot" target="_blank" rel="noreferrer">
+          View repo
+        </a>
+      </section>
+
+      <section class="chat-panel" aria-label="Steer chatbot">
+        <div id="messages" class="messages"></div>
+
+        <div class="suggestions" aria-label="Example questions">
+          <button type="button" data-question="refund is not being credited to the account">Refund not credited</button>
+          <button type="button" data-question="when should a support case be escalated">Escalation rules</button>
+          <button type="button" data-question="how do I change account ownership">Account ownership</button>
+          <button type="button" data-question="how are privacy deletion requests handled">Privacy request</button>
+        </div>
+
+        <form id="chat-form" class="composer">
+          <input
+            id="question"
+            name="question"
+            type="text"
+            autocomplete="off"
+            placeholder="Ask a policy question"
+            aria-label="Ask a policy question"
+          />
+          <button type="submit">Send</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
